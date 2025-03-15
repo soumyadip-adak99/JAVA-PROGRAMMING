@@ -1,41 +1,13 @@
 package TreeBasic;
 
+import TreeStructure.Node;
+import TreeStructure.BuildTree;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class Traversal {
-
-    public static class Node {
-        int value;
-        Node left;
-        Node right;
-
-        public Node(int value) {
-            this.value = value;
-            this.left = null;
-            this.right = null;
-        }
-    }
-
-    public static class BuildTree {
-        static int index = -1;
-
-        public Node buildTree(int[] nodes) {
-            index++;
-
-            if (nodes[index] == -1) {
-                return null;
-            }
-
-            Node newNode = new Node(nodes[index]);
-            newNode.left = buildTree(nodes);
-            newNode.right = buildTree(nodes);
-
-            return newNode;
-        }
-    }
-
     // tree traversal
 
     // preorder traversal
@@ -144,7 +116,6 @@ public class Traversal {
         int[] nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
         BuildTree tree = new BuildTree();
         Node root = tree.buildTree(nodes);
-        levelorder(root);
         System.out.println(levelOrderTraversal(root));
     }
 }
