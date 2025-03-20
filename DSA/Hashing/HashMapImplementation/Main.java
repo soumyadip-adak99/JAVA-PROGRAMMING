@@ -29,6 +29,10 @@ public class Main {
             }
         }
 
+        private int hashFunction(K key) {
+            return Math.abs(key.hashCode() % N);
+        }
+
         private int searchInLinkedList(K key, int bucketIndex) {
             LinkedList<Node> list = buckets[bucketIndex];
 
@@ -60,7 +64,7 @@ public class Main {
 
         // put function
         public void put(K key, V value) { // time complexity O(lambda)
-            int bucketIndex = Math.abs(key.hashCode() % N);
+            int bucketIndex = hashFunction(key);
             int dataIndex = searchInLinkedList(key, bucketIndex);// its provide data index
 
             if (dataIndex == -1) { // key doesn't exit
@@ -79,14 +83,15 @@ public class Main {
             }
         }
 
+        //containsKey
         public boolean containsKey(K key) {
-            int bucketIndex = Math.abs(key.hashCode() % N);
+            int bucketIndex = hashFunction(key);
             int dataIndex = searchInLinkedList(key, bucketIndex);
             return dataIndex != -1;
         }
 
         public V remove(K key) {
-            int bucketIndex = Math.abs(key.hashCode() % N);
+            int bucketIndex = hashFunction(key);
             int dataIndex = searchInLinkedList(key, bucketIndex);
 
             if (dataIndex == -1) {
@@ -99,7 +104,7 @@ public class Main {
         }
 
         public V get(K key) {
-            int bucketIndex = Math.abs(key.hashCode() % N);
+            int bucketIndex = hashFunction(key);
             int dataIndex = searchInLinkedList(key, bucketIndex);// its provide data index
 
             if (dataIndex == -1) { // key doesn't exit
