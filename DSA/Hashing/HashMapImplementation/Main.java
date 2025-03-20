@@ -29,6 +29,7 @@ public class Main {
             }
         }
 
+        // hash function
         private int hashFunction(K key) {
             return Math.abs(key.hashCode() % N);
         }
