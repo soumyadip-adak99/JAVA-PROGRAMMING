@@ -16,12 +16,5 @@ public class fibonacciSerese {
     }
 
     public static void main(String args[]) {
-        Scanner scan = new Scanner(System.in);
-
-        System.out.print("Enter a number: ");
-        int number = scan.nextInt();
-
-        calculateFinboSerise(number);
-        scan.close();
     }
 }
