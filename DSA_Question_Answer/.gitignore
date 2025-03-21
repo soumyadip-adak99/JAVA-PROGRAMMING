@@ -23,10 +23,11 @@ bin/
 /.nb-gradle/
 
 ### VS Code ###
-
+.vscode/
 
 ### Mac OS ###
 .DS_Store
 
 .idea/
 DSA_Question_Answer.iml
+.gitignore
