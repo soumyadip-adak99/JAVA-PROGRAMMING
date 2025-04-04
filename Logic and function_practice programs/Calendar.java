@@ -14,25 +14,15 @@ public class Calendar {
     }
 
     public static int monthChart(int month) {
-        if (month <= 12) {
-            if (month == 1 || month == 10) {
-                return 0;
-            } else if (month == 2 || month == 3 || month == 11 || month == 12) {
-                return 3;
-            } else if (month == 4 || month == 7) {
-                return 6;
-            } else if (month == 5) {
-                return 1;
-            } else if (month == 6) {
-                return 4;
-            } else if (month == 8) {
-                return 2;
-            } else {
-                return 5;
-            }
-        } else {
-            return 0;
-        }
+        return switch (month) {
+            case 1, 10 -> 0;
+            case 2, 3, 11, 12 -> 3;
+            case 4, 7 -> 6;
+            case 5 -> 1;
+            case 6 -> 4;
+            case 8 -> 2;
+            default -> 5;
+        };
     }
 
     public static int centuryChart(int year) {
@@ -85,8 +75,8 @@ public class Calendar {
     }
 
     public static void main(String[] args) {
-        int day = 11;
-        int month = 8;
+        int day = 8;
+        int month = 11;
         int year = 2031;
         getWeekDay(day, month, year);
     }
