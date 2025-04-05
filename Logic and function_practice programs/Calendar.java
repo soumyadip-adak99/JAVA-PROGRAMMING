@@ -27,7 +27,7 @@ public class Calendar {
 
     public static int centuryChart(int year) {
 
-        int century = year / 100;
+        int century = year / 100;              
         int remainder = century % 4;
 
         return switch (remainder) {
@@ -38,18 +38,18 @@ public class Calendar {
             default -> 0;
         };
 
-        /*
-        if (year >= 2300 && year <= 2399 || year >= 1900 && year <= 1999 || year >= 1500 && year <= 1599) {
-            return 0;
-        } else if (year >= 2200 && year <= 2299 || year >= 1800 && year <= 1899 || year >= 1400 && year <= 1499) {
-            return 2;
-        } else if (year >= 2100 && year <= 2199 || year >= 1700 && year <= 1799) {
-            return 4;
-        } else if (year >= 2000 && year <= 2099 || year >= 1600 && year <= 1699) {
-            return 6;
-        } else {
-            return Integer.MIN_VALUE;
-        } */
+//
+//        if (year >= 2300 && year <= 2399 || year >= 1900 && year <= 1999 || year >= 1500 && year <= 1599) {
+//            return 0;
+//        } else if (year >= 2200 && year <= 2299 || year >= 1800 && year <= 1899 || year >= 1400 && year <= 1499) {
+//            return 2;
+//        } else if (year >= 2100 && year <= 2199 || year >= 1700 && year <= 1799) {
+//            return 4;
+//        } else if (year >= 2000 && year <= 2099 || year >= 1600 && year <= 1699) {
+//            return 6;
+//        } else {
+//            return Integer.MIN_VALUE;
+//        }
     }
 
     public static boolean isLeapYear(int year) {
