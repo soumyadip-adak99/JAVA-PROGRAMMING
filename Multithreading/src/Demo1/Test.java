@@ -11,8 +11,7 @@ public class Test {
         // using runnable interface
         NewWorld newWorld = new NewWorld();
 
-        //Creating a Thread class object
-        Thread t1 = new Thread(newWorld);
+        Thread t1 = new Thread(newWorld);   //Creating a Thread class object
         t1.start();
 
 
