@@ -75,9 +75,9 @@ public class Calendar {
     }
 
     public static void main(String[] args) {
-        int day = 8;
-        int month = 11;
-        int year = 2031;
-        getWeekDay(day, month, year);
+//        int day = 28;
+//        int month = 5;
+//        int year = 2006;
+        getWeekDay(6, 3, 2004);
     }
 }
