@@ -1,9 +1,10 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class Hash_Map {
     public static void main(String[] args) {
-        // key , vlaue
+        // key , value
         HashMap<String, Integer> map = new HashMap<>();
 
         // insertion
@@ -29,6 +30,13 @@ public class Hash_Map {
         // loop for hash map
         for (Map.Entry<String, Integer> e : map.entrySet()) {
             System.out.println(e.getKey() + " " + e.getValue());
+        }
+
+        // key set through
+        Set<String> keySet = map.keySet();
+
+        for (String key : keySet) {
+            System.out.println(key + " " + map.get(key));
         }
 
         // remove part
