@@ -27,3 +27,8 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+File_System_in_java.iml
+.gitignore
+
+.idea
