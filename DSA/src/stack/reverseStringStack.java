@@ -2,34 +2,36 @@ package stack;
 
 import java.util.Scanner;
 
-class Stack {
-    char[] arr;
-    int top;
-
-    public Stack(int size) {
-        this.arr = new char[size];
-        this.top = -1;
-    }
-
-    public void push(char ch) {
-        if (top == arr.length - 1) {
-            System.out.println("Stack overflow " + ch + " can't push.");
-        } else {
-            arr[++top] = ch;
-        }
-    }
-
-    public char pop() {
-        if (top == -1) {
-            System.out.println("\nStack underflow");
-            return '\0';
-        } else {
-            return arr[top--];
-        }
-    }
-}
 
 public class reverseStringStack {
+
+    static class Stack {
+        char[] arr;
+        int top;
+
+        public Stack(int size) {
+            this.arr = new char[size];
+            this.top = -1;
+        }
+
+        public void push(char ch) {
+            if (top == arr.length - 1) {
+                System.out.println("Stack overflow " + ch + " can't push.");
+            } else {
+                arr[++top] = ch;
+            }
+        }
+
+        public char pop() {
+            if (top == -1) {
+                System.out.println("\nStack underflow");
+                return '\0';
+            } else {
+                return arr[top--];
+            }
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 

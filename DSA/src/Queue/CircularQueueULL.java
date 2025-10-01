@@ -1,16 +1,16 @@
 package Queue;
 
-class Node {
-    int data;
-    Node next;
-
-    public Node(int data) {
-        this.data = data;
-        this.next = null;
-    }
-}
-
 public class CircularQueueULL {
+    static class Node {
+        int data;
+        Node next;
+
+        public Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
     public static Node front = null;
     public static Node rear = null;
 
@@ -32,13 +32,15 @@ public class CircularQueueULL {
 
     public static int deQueue() {
         if (isEmpty()) {
-            System.out.println("Stack is empty.");
+            System.out.println("Queue is empty.");
             return -1;
         }
 
         int result = front.data;
-        if (front == rear)
+        if (front == rear) {
             front = rear = null;
+            return result;
+        }
 
         front = front.next;
         rear.next = front;
@@ -47,27 +49,37 @@ public class CircularQueueULL {
 
     public static int peek() {
         if (isEmpty()) {
-            System.out.println("Stack is empty.");
+            System.out.println("Queue is empty.");
             return -1;
         }
-
         return front.data;
     }
 
-    public static void display() {
+    private static void display() {
         if (isEmpty()) {
-            System.out.println("Stack is empty.");
+            System.out.println("Queue is empty.");
             return;
         }
-
         Node currNode = front;
-        while (currNode != front) {
-            System.out.println(currNode.data);
+        do {
+            System.out.print(currNode.data + " ");
             currNode = currNode.next;
-        }
+        } while (currNode != front);
+
+        System.out.println();
     }
 
     public static void main(String[] args) {
+        enQueue(10);
+        enQueue(20);
+        enQueue(30);
+        enQueue(40);
 
+        display();
+
+        System.out.println("Dequeued: " + deQueue());
+        display();
+
+        System.out.println("Peek: " + peek());
     }
 }

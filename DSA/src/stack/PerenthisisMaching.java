@@ -6,20 +6,15 @@ public class PerenthisisMaching {
     ArrayList<Character> arr = new ArrayList<>();
 
     public void push(char val) {
-        if (arr.size() == arr.size() - 1) {
-            System.out.println("Stack is overflow.");
-            return;
-        }
         arr.add(val);
     }
 
     public char pop() {
-        if (arr.size() == 0) {
+        if (arr.isEmpty()) {
             System.out.println("Stack is underflow.");
             return '\0';
         }
-        char val = arr.remove(arr.size() - 1);
-        return val;
+        return arr.removeLast();
     }
 
     public static boolean matching(char open, char close) {
@@ -36,23 +31,19 @@ public class PerenthisisMaching {
             if ((exp.charAt(i) == '(') || (exp.charAt(i) == '{') || (exp.charAt(i) == '[')) {
                 stack.push(exp.charAt(i));
             } else if ((exp.charAt(i) == ')') || (exp.charAt(i) == '}') || (exp.charAt(i) == ']')) {
-                if (stack.arr.size() == 0) {
+                if (stack.arr.isEmpty()) {
                     System.out.println("Stack is underflow.");
                     return false;
                 }
 
                 char popedChar = stack.pop();
-                if (matching(popedChar, exp.charAt(i)) == false) {
+                if (!matching(popedChar, exp.charAt(i))) {
                     return false;
                 }
             }
         }
 
-        if (stack.arr.size() == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return stack.arr.isEmpty();
     }
 
     public static void main(String[] args) {

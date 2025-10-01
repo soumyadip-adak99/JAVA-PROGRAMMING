@@ -1,6 +1,6 @@
 package stack.questions;
 
-import implementation.Stack;
+import stack.implementation.Stack;
 
 public class ReverseString {
     public static void main(String[] args) {
@@ -8,8 +8,8 @@ public class ReverseString {
 
         String str = "hello";
 
-        for (int i = 0; i < str.length(); i++) {
-            stack.push(str.charAt(i));
+        for(char ch : str.toCharArray()) {
+            stack.push(ch);
         }
 
         stack.display();
