@@ -1,77 +1,63 @@
 package Tire;
 
-import java.util.Arrays;
-
 public class TrieImpl {
     static class Node {
         Node[] children;
         boolean endOfWord;
 
         public Node() {
-            children = new Node[26]; // a to z
-            Arrays.fill(children, null);
+            children = new Node[26];
+            for (int i = 0; i < 26; i++)
+                children[i] = null;
+
             endOfWord = false;
         }
     }
 
-    // root node (always empty)
     static Node root = new Node();
 
-    /**
-     * insert function in Trie Data structure,
-     * insert function takes O(L) time complexity [L -> means length of string]
-     */
-    public static void insert(String word) {
-        Node curr = root; 
-
+    public  void insert(String word) {
+        Node currentNode = root;
         for (int i = 0; i < word.length(); i++) {
             int idx = word.charAt(i) - 'a';
 
-            if (curr.children[idx] == null) {
-                // add new node
-                curr.children[idx] = new Node();
-            }
+            if(currentNode.children[idx] == null)
+                currentNode.children[idx] = new Node();
 
-            if (i == word.length() - 1) {
-                curr.children[idx].endOfWord = true;
-            }
+            if (i == word.length() -1)
+                currentNode.children[idx].endOfWord = true;
 
-            curr = curr.children[idx];
+            currentNode = currentNode.children[idx];
         }
     }
 
-    /**
-     * search function in Trie Data structure,
-     * search function takes O(L) time complexity [L -> means length of string]
-     */
-    public static boolean search(String key) {
-        Node curr = root; 
-
-        for (int i = 0; i < key.length(); i++) {
+    public  boolean search(String key) {
+        Node currentNode = root;
+        for(int i=0; i<key.length(); i++) {
             int idx = key.charAt(i) - 'a';
-            Node node = curr.children[idx];
 
-            if (node == null)
+            if(currentNode.children[idx] == null)
+                return false;
+            if(i == key.length()-1 && !currentNode.children[idx].endOfWord)
                 return false;
 
-            if (i == key.length() - 1 && !node.endOfWord)
-                return false;
-
-            curr = node;
+            currentNode = currentNode.children[idx];
         }
 
         return true;
     }
 
+
     public static void main(String[] args) {
-        String[] word = { "then", "a", "there", "their", "any" };
-        for (String str : word) {
-            insert(str);
+        String[] words = {"the", "a", "there", "their", "any"};
+        TrieImpl trie = new TrieImpl();
+
+        for (String word : words) {
+            trie.insert(word);
         }
 
-        System.out.println(search("then")); // true
-        System.out.println(search("thor")); // false
-        System.out.println(search("a")); // true
-        System.out.println(search("any")); // true
+        System.out.println(trie.search("the"));
+        System.out.println(trie.search("thor"));
+        System.out.println(trie.search("an"));
     }
 }
