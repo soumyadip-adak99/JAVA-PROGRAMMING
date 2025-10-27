@@ -1,9 +1,9 @@
 package Tire;
 
 public class TrieImpl {
-    static class Node {
-        Node[] children;
-        boolean endOfWord;
+    public static class Node {
+        public Node[] children;
+        public boolean endOfWord;
 
         public Node() {
             children = new Node[26];
@@ -14,31 +14,31 @@ public class TrieImpl {
         }
     }
 
-    static Node root = new Node();
+   public static Node root = new Node();
 
-    public  void insert(String word) {
+    public void insert(String word) {
         Node currentNode = root;
         for (int i = 0; i < word.length(); i++) {
             int idx = word.charAt(i) - 'a';
 
-            if(currentNode.children[idx] == null)
+            if (currentNode.children[idx] == null)
                 currentNode.children[idx] = new Node();
 
-            if (i == word.length() -1)
+            if (i == word.length() - 1)
                 currentNode.children[idx].endOfWord = true;
 
             currentNode = currentNode.children[idx];
         }
     }
 
-    public  boolean search(String key) {
+    public boolean search(String key) {
         Node currentNode = root;
-        for(int i=0; i<key.length(); i++) {
+        for (int i = 0; i < key.length(); i++) {
             int idx = key.charAt(i) - 'a';
 
-            if(currentNode.children[idx] == null)
+            if (currentNode.children[idx] == null)
                 return false;
-            if(i == key.length()-1 && !currentNode.children[idx].endOfWord)
+            if (i == key.length() - 1 && !currentNode.children[idx].endOfWord)
                 return false;
 
             currentNode = currentNode.children[idx];

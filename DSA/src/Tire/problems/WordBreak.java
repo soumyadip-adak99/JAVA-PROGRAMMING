@@ -18,7 +18,7 @@ public class WordBreak {
         }
     }
 
-    static Node root = new Node();
+     static Node root = new Node();
 
     // insert in trie
     public static void insert(String word) {
