@@ -1,85 +1,89 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void printBoar(char[][] board) {
-        for (int row = 0; row < board.length; row++) {
-            for (int col = 0; col < board[row].length; col++) {
-                System.out.print(board[row][col] + " | ");
+    public static void main(String[] args) {
+        char[][] board = new char[3][3];
+
+        for (char[] chars : board) {
+            Arrays.fill(chars, ' ');
+        }
+
+        char player = 'X';
+        boolean gameOver = false;
+        int moves = 0;
+
+        Scanner scan = new Scanner(System.in);
+
+        while (!gameOver) {
+            printBoard(board);
+            System.out.println("Player " + player + " enter row and column (0-2): ");
+
+            int row = scan.nextInt();
+            int col = scan.nextInt();
+
+            if (row < 0 || row > 2 || col < 0 || col > 2) {
+                System.out.println("Invalid position! Try again.");
+                continue;
+            }
+
+            if (board[row][col] == ' ') {
+                board[row][col] = player;
+                moves++;
+
+                gameOver = haveWon(board, player);
+
+                if (gameOver) {
+                    printBoard(board);
+                    System.out.println("Player " + player + " has won");
+                } else if (moves == 9) {
+                    printBoard(board);
+                    System.out.println("Game is a draw");
+                    break;
+                } else {
+                    player = (player == 'X') ? 'O' : 'X';
+                }
+            } else {
+                System.out.println("Cell already occupied. Try again.");
+            }
+        }
+
+        scan.close();
+    }
+
+    public static void printBoard(char[][] board) {
+        System.out.println();
+        for (char[] chars : board) {
+            for (char aChar : chars) {
+                System.out.print(aChar + " | ");
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     public static boolean haveWon(char[][] board, char player) {
-        // cheack te rows
-        for (int row = 0; row < board.length; row++) {
-            if (board[row][0] == player && board[row][1] == player && board[row][2] == player) {
+
+        // check row
+        for (char[] chars : board) {
+            if (chars[0] == player && chars[1] == player && chars[2] == player) {
                 return true;
             }
         }
 
-        // check cols
+        // check col
         for (int col = 0; col < board.length; col++) {
             if (board[0][col] == player && board[1][col] == player && board[2][col] == player) {
                 return true;
             }
         }
 
-        // check diagonal
+        // check for diagonal
         if (board[0][0] == player && board[1][1] == player && board[2][2] == player) {
             return true;
         }
 
-        if (board[0][2] == player && board[1][1] == player && board[2][0] == player) {
-            return true;
-        }
-
-        return false;
-    }
-
-    public static void main(String[] args) {
-        char[][] board = new char[3][3];
-
-        for (int row = 0; row < board.length; row++) {
-            for (int col = 0; col < board[row].length; col++) {
-                board[row][col] = ' ';
-            }
-        }
-
-        char player = 'X';
-        boolean gameOver = false;
-
-        Scanner scan = new Scanner(System.in);
-
-        while (!gameOver) {
-            printBoar(board);
-            System.out.print("Player " + player + " enter: ");
-            int row = scan.nextInt();
-            int col = scan.nextInt();
-
-            if (board[row][col] == ' ') {
-                // place the element
-                board[row][col] = player;
-                gameOver = haveWon(board, player);
-
-                if (gameOver) {
-                    System.out.println("Player " + player + " has won.");
-
-                } else {
-                    // if (player == 'X') {
-                    // player = 'O';
-                    // } else {
-                    // player = 'X';
-                    // }
-
-                    player = (player == 'X') ? 'O' : 'X';
-                }
-            } else {
-                System.out.println("Invalid move. Try again");
-            }
-        }
-        scan.close();
-        printBoar(board);
+        return board[0][2] == player && board[1][1] == player && board[2][0] == player;
     }
 }
