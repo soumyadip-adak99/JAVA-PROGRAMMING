@@ -58,7 +58,7 @@ public class CountUniqueSubstring {
             insert(suffix);
         }
 
-        System.out.println(STR."Total distinct substrings: \{countOfNode(root)}");
+        System.out.println("Total distinct substrings: " + countOfNode(root));
     }
 }
 
