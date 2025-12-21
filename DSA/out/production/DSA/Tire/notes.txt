@@ -1,4 +1,0 @@
-1-> search in front
-2-> root is an empty node
-3-> prefix is not repeated
-
