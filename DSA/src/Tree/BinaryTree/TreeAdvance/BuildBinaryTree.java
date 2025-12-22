@@ -1,4 +1,4 @@
-package Tree.TreeAdvance;
+package Tree.BinaryTree.TreeAdvance;
 
 public class BuildBinaryTree {
 

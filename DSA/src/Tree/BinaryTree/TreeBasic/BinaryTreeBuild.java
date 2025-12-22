@@ -1,4 +1,4 @@
-package Tree.TreeBasic;
+package Tree.BinaryTree.TreeBasic;
 
 public class BinaryTreeBuild {
     static class Node {

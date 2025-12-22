@@ -1,7 +1,7 @@
-package Tree.TreeBasic;
+package Tree.BinaryTree.TreeBasic;
 
-import Tree.Node;
-import Tree.Tree;
+import Tree.BinaryTree.Node;
+import Tree.BinaryTree.Tree;
 
 public class TreeTraversal {
     public static void main(String[] args) {

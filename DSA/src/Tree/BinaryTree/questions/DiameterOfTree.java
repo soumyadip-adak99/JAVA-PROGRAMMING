@@ -1,7 +1,7 @@
-package Tree.questions;
+package Tree.BinaryTree.questions;
 
-import Tree.Tree;
-import Tree.Node;
+import Tree.BinaryTree.Tree;
+import Tree.BinaryTree.Node;
 
 public class DiameterOfTree {
     public static void main(String[] args) {

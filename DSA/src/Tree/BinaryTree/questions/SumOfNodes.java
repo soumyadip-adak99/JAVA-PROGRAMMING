@@ -1,7 +1,7 @@
-package Tree.questions;
+package Tree.BinaryTree.questions;
 
-import Tree.Node;
-import Tree.Tree;
+import Tree.BinaryTree.Node;
+import Tree.BinaryTree.Tree;
 
 public class SumOfNodes {
     public static void main(String[] args) {

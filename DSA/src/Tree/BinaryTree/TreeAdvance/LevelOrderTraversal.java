@@ -1,10 +1,10 @@
-package Tree.TreeAdvance;
+package Tree.BinaryTree.TreeAdvance;
 
 import java.util.Queue;
 import java.util.LinkedList;
 
-import Tree.Node;
-import Tree.Tree;
+import Tree.BinaryTree.Node;
+import Tree.BinaryTree.Tree;
 
 public class LevelOrderTraversal {
     public static void main(String[] args) {
