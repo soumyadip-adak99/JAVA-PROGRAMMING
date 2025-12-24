@@ -35,6 +35,18 @@ public class BuildBST {
         inorderTraversal(root.right);
     }
 
+    public static Node searchNode(Node root, int k) {
+        while (root != null) {
+            if (root.data == k)
+                return root;
+            else if (k < root.data)
+                root = root.left;
+            else
+                root = root.right;
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
         int[] values = {5, 1, 3, 4, 2, 7};
         Node root = null;
@@ -44,5 +56,7 @@ public class BuildBST {
         }
 
         inorderTraversal(root);
+
+        System.out.println(searchNode(root, 2) == null ? "NOT_FOUND" : "FOUND");
     }
 }
