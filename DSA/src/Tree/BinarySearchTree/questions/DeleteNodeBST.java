@@ -22,6 +22,10 @@ public class DeleteNodeBST {
     }
 
     public static Node deleteNode(Node root, int value) {
+        if (root == null) {
+            return null;
+        }
+
         if (value < root.data) {
             root.left = deleteNode(root.left, value);
         } else if (value > root.data) {
