@@ -2,7 +2,7 @@ package Tree.BinaryTree;
 
 public class Tree {
 
-    static int index = -1;
+    public int index = -1;
 
     public Node buildTree(int[] nodes) {
         index++;
@@ -16,4 +16,4 @@ public class Tree {
         newNode.right = buildTree(nodes);
         return newNode;
     }
-}
+} 
