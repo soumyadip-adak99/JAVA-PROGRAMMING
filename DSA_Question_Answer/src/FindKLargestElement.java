@@ -1,6 +1,6 @@
 import java.util.PriorityQueue;
 
-public class FIndKLargestElement {
+public class FindKLargestElement {
     public static void main(String[] args) {
         System.out.println(kLargestElement(new int[]{7, 3, 4, 0, 5, 6, 8, 9}, 3));
     }
