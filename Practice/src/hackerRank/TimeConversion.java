@@ -7,6 +7,7 @@ public class TimeConversion {
         System.out.println(timeConversion(time));
     }
 
+    // time conversion function
     static String timeConversion(String time) {
         String period = time.substring(8);
         int hour = Integer.parseInt(time.substring(0, 2));
